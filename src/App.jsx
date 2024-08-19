@@ -21,7 +21,7 @@ function App() {
     {/* <ChatIcon /> */}
     <Routes>
     <Route path="/" element={<Home1/>} />
-    <Route path="/home" element={<Home1/>} />
+    {/* <Route path="/home" element={<Home1/>} /> */}
     <Route path="/home1" element={<Home1/>} />
     <Route path="/blogs-grid" element={<BlogGrid/>} />
     <Route path="/view" element={<BlogGrid/>} />
@@ -42,7 +42,7 @@ function App() {
     <ScrollToTop
         smooth
         color="#f29f67"
-        style={{ backgroundColor: "#1e1e2c", borderRadius: "80px" }}
+        style={{ backgroundColor: "#1e1e2c", borderRadius: "80px",display:"grid", placeItems:"center" }}
       />
     </BrowserRouter>
     </>

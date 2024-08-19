@@ -55,13 +55,13 @@ const WhyChooseUsHom1 = () => {
         </div>
         <div className="flex flex-wrap -mx-4 " data-aos="fade-right">
           {whyChooseData.map((item, index) => (
-            <div key={index} className="w-full lg:w-1/3 md:w-1/2 px-4 mb-8">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div key={index} className="w-full  lg:w-1/3 md:w-1/2 px-4 mb-8">
+              <div className="bg-white p-6 h-full rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="mb-4">
                   <img src={item.icon} alt="svg icon" className="w-12 h-12 mx-auto" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 text-center">{item.title}</h3>
-                <p className="text-gray-700 text-center">{item.description}</p>
+                <p className="text-gray-700  text-center">{item.description}</p>
               </div>
             </div>
           ))}

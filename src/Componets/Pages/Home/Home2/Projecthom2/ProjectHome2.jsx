@@ -42,7 +42,7 @@ const ProjectHome2 = () => {
   }, []);
 
   const renderCards = () => {
-    const cardClass = "bg-white p-4 rounded-lg shadow-lg flex items-center justify-center text-center";
+    // const cardClass = "bg-white p-4 rounded-lg shadow-lg flex items-center justify-center text-center";
 
     switch (selectedCategory) {
       case 'IT Solutions':

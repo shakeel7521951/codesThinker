@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ct from './../images/code.png';
-import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +32,7 @@ const Navbar = () => {
           <ul className={`flex flex-col md:flex-row md:space-x-8 md:space-y-0 space-y-4 absolute md:static bg-white md:bg-transparent w-full md:w-auto ${isOpen ? 'top-10' : ''} md:top-0 px-4 md:px-0`}>
             {/* Home Menu */}
             <li className="relative group">
-              <Link to="/home" className="nav-link flex items-center text-black py-2 md:py-0 hover:text-[#5764ec] hover:border-b-2 border-[#f8d022]">
+              <Link to="/" className="nav-link flex items-center text-black py-2 md:py-0 hover:text-[#5764ec] hover:border-b-2 border-[#f8d022]">
                 Home
               </Link>
                 

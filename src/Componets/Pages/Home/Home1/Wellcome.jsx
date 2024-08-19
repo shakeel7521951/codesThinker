@@ -27,12 +27,12 @@ const Wellcome = () => {
         Success is a multifaceted concept that varies widely depending on individual goals, values, and contexts.
         </h3>
           <div className='space-x-3'>
-            <Link>
+            <Link to="/contact">
         <button className='bg-[#f8d022] p-2 md:p-3 w-32 md:w-40 text-white rounded-full font-bold'>
           Contact Us
         </button>
         </Link>
-         <Link>
+         <Link to="/services">
         <button className='bg-[#f8d022] p-2 md:p-3 w-32 md:w-40 text-white rounded-full font-bold'>
           Services
         </button>

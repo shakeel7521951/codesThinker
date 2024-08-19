@@ -103,7 +103,7 @@ const FooterHome = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between">
             <div className="text-sm">
-              <p>© 2024 - All Rights Reserved - Designed by <span className="font-semibold"> Muhammad Ali @Wali Haider jalali</span></p>
+              <p>© 2024 - All Rights Reserved - Developed by <span className="font-semibold"> @Imran Farooq Qaisrani</span></p>
             </div>
             <ul className="flex space-x-4 text-sm">
               <li><a href="terms-condition.html" className="hover:text-white">Terms & Conditions</a></li>

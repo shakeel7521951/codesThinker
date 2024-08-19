@@ -23,7 +23,7 @@ const PageTitle = ({title,Sub}) => {
             </div>
             <div className='flex  justify-center" data-aos="fade-right"'>
                <div className='flex'>
-               <Link className="text-[#fad367] px-3 ">Home</Link>
+               <Link to="/" className="text-[#fad367] px-3 ">Home</Link>
                  <IoIosArrowForward  size={20} className='mt-1 text-[#fad367]'/>
                </div>
                 <Link className="text-[#fad367] px-3 ">{Sub}</Link>
