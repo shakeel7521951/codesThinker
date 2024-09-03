@@ -44,6 +44,7 @@ function App() {
         color="#f29f67"
         style={{ backgroundColor: "#1e1e2c", borderRadius: "80px",display:"grid", placeItems:"center" }}
       />
+      
     </BrowserRouter>
     </>
   );

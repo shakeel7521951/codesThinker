@@ -23,11 +23,11 @@ const PopularPosts = () => {
       ];
   return (
     <section className="widget widget_techSoft_posts_thumb mb-8">
-    <h3 className="widget-title text-2xl font-semibold mb-4">
+    <h3 className="widget-title text-2xl font-semibold mb-4 text-white">
       Popular Posts
     </h3>
     <div className=" bg-gray-200 rounded-full h-[2px] mb-4">
-        <div className="bg-blue-500 h-[2px] rounded-full" style={{ width: "25%" }}></div>
+        <div className="bg-[#EFA41C] h-[2px] rounded-full" style={{ width: "25%" }}></div>
       </div>
     {popularPosts.map((post) => (
       <article
@@ -36,8 +36,8 @@ const PopularPosts = () => {
       >
         <img src={post.imageClass} alt="/no img" className="w-1/4 block  h-16 rounded-lg bg-gray-300" />
         <div className="info w-3/4 ml-4">
-          <span className="text-sm text-gray-500">{post.date}</span>
-          <h4 className="title usmall   font-semibold text-[15px] hover:text-blue-600">
+          <span className="text-sm text-gray-300">{post.date}</span>
+          <h4 className="title usmall  text-gray-300 font-semibold text-[15px] hover:text-[#EFA41C]">
             {post.title}
           </h4>
         </div>

@@ -4,8 +4,6 @@ import React from 'react'
 import AboutHome1 from './AboutHome1'
 import WhyChooseUsHom1 from './WhyChooseUsHom1'
 import ProjectHom1 from './ProjectHom1'
-import TeamSection from './TeamSection/TeamSection'
-import Testimonial from './Testimonial/Testimonial'
 import BlogSection from './BlogSection/BlogSection'
 import ConsultationSection from './Consultation/ConsultationSection'
 import FooterHome from './FooterHome/FooterHome'
@@ -21,8 +19,6 @@ const Home1 = () => {
       <WhyChooseUsHom1/>
       <ProjectHom1/>
         <ProjectHome2/>
-       <TeamSection/>
-       <Testimonial/>
        <BlogSection/>
        <ConsultationSection/>
         <FooterHome/>

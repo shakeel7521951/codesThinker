@@ -12,7 +12,6 @@ const ServiceSection = () => {
       <WorkProcess/>
       <ServicesCategory/>
      <FooterHome/>
-     
     </>
   )
 }

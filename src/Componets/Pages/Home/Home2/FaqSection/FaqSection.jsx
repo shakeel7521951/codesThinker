@@ -4,9 +4,9 @@ import { UpOutlined, DownOutlined } from "@ant-design/icons";
 
 const expandIcon = ({ isActive }) =>
     isActive ? (
-      <UpOutlined className="bg-[#6165F3] p-3 text-white rounded-full flex justify-center items-center" />
+      <UpOutlined className="bg-[#d9d9d9] hover:bg-[#EFA41C] p-3 text-white rounded-full flex justify-center items-center" />
     ) : (
-      <DownOutlined className="bg-[#d9d9d9] p-3 text-white rounded-full flex justify-center items-center" />
+      <DownOutlined className="bg-[#d9d9d9] hover:bg-[#EFA41C] p-3 text-white rounded-full flex justify-center items-center" />
     );
 const FaqSection = () => {
     const [activeKey, setActiveKey] = useState(["5"]);
@@ -63,11 +63,11 @@ const FaqSection = () => {
   ];
 
   return (
-    <section className="faq-area py-16 px:16 font-serif">
+    <section className="faq-area py-16 px:16 font-serif bg-[#121225]">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h6 className="text-lg text-gray-500">Frequently Ask Question</h6>
-          <h2 className="text-3xl font-bold">Have a Question?</h2>
+          <h6 className="text-lg text-gray-300">Frequently Ask Question</h6>
+          <h2 className="text-3xl font-bold text-gray-300">Have a Question?</h2>
         </div>
         <div>
           <div className="lg:w-[80%] w-[90%] mx-auto">
@@ -82,9 +82,11 @@ const FaqSection = () => {
                   header={item.label}
                   key={item.key}
                   extra={item.extra}
-                  className="py-3 bg-white"
+                  className="py-3 bg-[#0f0f1d]"
                 >
                   {item.children}
+
+                
                 </Panel>
               ))}
             </Collapse>

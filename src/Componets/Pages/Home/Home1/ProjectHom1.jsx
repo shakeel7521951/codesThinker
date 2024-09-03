@@ -47,11 +47,11 @@ const ProjectHom1 = () => {
     AOS.init({ duration: 2000 });
   }, []);
   return (
-    <section id="project" className="bg-gray-100 py-16 lg:px-10">
+    <section id="project" className="bg-[#121225] py-16 lg:px-10 font-ui-sans-serif">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h6 className="text-lg text-gray-600">Featured Works</h6>
-          <h2 className="text-4xl font-bold">Case Studies</h2>
+          <h6 className="text-lg text-gray-300">Featured Works</h6>
+          <h2 className="text-4xl font-bold text-gray-300">Case Studies</h2>
         </div>
         <div className="flex flex-wrap -mx-4" data-aos="fade-right">
           {projectData.map((project, index) => (
@@ -71,7 +71,7 @@ const ProjectHom1 = () => {
           ))}
         </div>
         <div className="text-center mt-8">
-          <a className="btn btn-primary bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700" href="#0">
+          <a className="btn btn-primary bg-[#EFA41C] text-white py-3 px-6 rounded-lg hover:bg-[#EFA41C]" href="#0">
             View All Projects
           </a>
         </div>

@@ -18,11 +18,11 @@ const TeamSection = () => {
     AOS.init({ duration: 2000 });
   }, []);
   return (
-    <section className="py-16 lg:px-10 bg-gray-100">
+    <section className="py-16 lg:px-10 bg-[#121225] font-ui-sans-serif">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h6 className="text-lg text-gray-600">Our Leadership</h6>
-          <h2 className="text-4xl font-bold">Team Members</h2>
+          <h6 className="text-lg text-gray-300">Our Leadership</h6>
+          <h2 className="text-4xl font-bold text-gray-300">Team Members</h2>
         </div>
         <div className="flex flex-wrap -mx-4" data-aos="fade-right">
           {teamMembers.map((member, index) => (
@@ -32,7 +32,7 @@ const TeamSection = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full  object-cover"
+                  className="w-full  object-cover border"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center text-white">
@@ -54,14 +54,14 @@ const TeamSection = () => {
                       </a> */}
                     </div>
                     <h3 className="text-2xl mb-2">{member.name}</h3>
-                    <span className="text-lg">{member.role}</span>
-                    <span className="text-lg">{member.work}</span>
+                    <span className="text-lg text-[#EFA41C] ">{member.role}</span>
+                    <span className="text-lg ">{member.work}</span>
                   </div>
                 </div>
               </div>
               <div className="text-center mt-3 ">
-                <h3 className="text-xl font-bold">{member.name}</h3>
-                <span className="text-blue-600 text-xm">{member.role}</span>
+                <h3 className="text-xl font-semibold text-white">{member.name}</h3>
+                <span className="text-gray-300 text-xm">{member.role}</span>
               </div>
               </Link>
             </div>

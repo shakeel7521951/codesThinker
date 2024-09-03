@@ -35,42 +35,42 @@ const BlogSectioData = () => {
         }
       ];
   return (
-     <section className=' py-12'>
+     <section className='bg-[#121225] py-12 font-ui-sans-serif'>
          <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h6 className="text-gray-600 text-sm font-semibold">Our Latest Blog</h6>
-          <h2 className="text-3xl font-bold">News & Updates</h2>
+          <h6 className="text-gray-300 text-sm font-semibold">Our Latest Blog</h6>
+          <h2 className="text-3xl font-bold text-gray-300">News & Updates</h2>
         </div>
     <div className="flex flex-wrap -mx-4 justify-center" data-aos="fade-right">
           {blogPosts.map((post, index) => (
-            <div key={index} className="lg:w-1/3 md:w-1/2 p-4">
-                <div className=" ">
+            <div key={index} className="lg:w-1/3 md:w-1/2 p-4 ">
+                <div className="">
                   <a href={post.link}>
-                    <img className="w-full h-64 object-cover " src={post.imgSrc} alt={post.title} />
+                    <img className="w-full h-64 object-cover rounded-t-lg border border-b-0 p-1" src={post.imgSrc} alt={post.title}/>
                   </a>
                 </div>
-              <div className="bg-white p-6  shadow-lg">
+              <div className="bg-[#0f0f1d] border border-t-0 rounded-b-lg p-6  shadow-lg">
                 <div className="">
-                  <ul className="flex items-center text-gray-600 text-sm">
+                  <ul className="flex items-center text-gray-300 text-sm">
                     <li className="mr-4">
-                      <h6>{post.date}</h6>
+                      <h6 className='text-gray-300'>{post.date}</h6>
                     </li>
                     <li className="mx-2">|</li>
                     <li>
-                      <a href="/" className="text-blue-500 hover:underline">{post.category}</a>
+                      <a href="/" className="text-[#EFA41C] hover:underline">{post.category}</a>
                     </li>
                   </ul>
                 </div>
                 <div className="mb-4">
                   <h3 className="text-xl font-semibold">
-                    <a href={post.link} className="text-gray-800 hover:underline">{post.title}</a>
+                    <a href={post.link} className="text-gray-300 hover:underline">{post.title}</a>
                   </h3>
                 </div>
                 <div className="mb-4">
-                  <p className="text-gray-700">{post.description}</p>
+                  <p className="text-gray-300">{post.description}</p>
                 </div>
                 <div>
-                  <a href={post.link} className="text-blue-500 hover:underline">+ Read More</a>
+                  <a href={post.link} className="text-[#EFA41C] hover:underline">+ Read More</a>
                 </div>
               </div>
             </div>
