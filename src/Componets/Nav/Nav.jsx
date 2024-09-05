@@ -95,7 +95,7 @@ const Navbar = () => {
             {/* Contact Menu */}
             <li className="relative group">
               <Link  onClick={()=>setIsOpen(false)} to="/contact" className="nav-link flex items-center text-white py-2 md:py-0 hover:text-[orange]">
-                Contact
+                {/* Contact */}
               </Link>
             </li>
             {/* About Us Menu */}
