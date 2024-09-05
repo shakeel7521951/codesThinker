@@ -17,6 +17,7 @@ function App() {
      <>
     <BrowserRouter>
     <Navbar/>
+      hello
      <ChatIcon/>
     {/* <ChatIcon /> */}
     <Routes>
