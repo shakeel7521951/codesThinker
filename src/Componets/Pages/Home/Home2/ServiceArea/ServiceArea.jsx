@@ -55,11 +55,11 @@ const ServicesArea = () => {
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <div className="services-btn">
-                  <a href={service.link} className="services-btn-one text-blue-500 hover:text-blue-700 transition duration-300">
+                {/* <div className="services-btn">
+                  <a href="#" className="services-btn-one text-blue-500 hover:text-blue-700 transition duration-300">
                     Read More
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

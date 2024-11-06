@@ -7,10 +7,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
 
-  
-
-  
-
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -106,7 +102,7 @@ const Navbar = () => {
         {/* Join Us Button */}
       
         <div className="flex-shrink-0 hidden md:block">
-          <button className="bg-[orange] text-white px-6 py-2 text-lg rounded-lg ">Join Us</button>
+          <button className="bg-[orange] text-white px-6 py-2 text-lg rounded-lg " onClick={()=>window.location.href="/login"}>Join Us</button>
         </div>
         {/* Mobile Search Icon */}
         {/* <div className='md:hidden flex items-center text-black'>

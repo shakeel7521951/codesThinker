@@ -5,8 +5,6 @@ const BlogGrid = () => {
   return (
     <>
      <BlogSectionGrid/>  
-    
-
     </>
   )
 }

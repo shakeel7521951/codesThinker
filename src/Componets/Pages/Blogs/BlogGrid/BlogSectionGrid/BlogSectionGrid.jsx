@@ -1,78 +1,73 @@
-import React from 'react';
-import img1 from '../../../../images/blog-1.jpg';
-import img2 from '../../../../images/blog-2.jpg';
-import img3 from '../../../../images/blog-3.jpg';
+import React, { useEffect, useState } from 'react';
 import Arrow from '../Arrow/Arrow';
-import BlogSectioData from '../../../Home/Home1/BlogSection/BlogSectioData';
-import { Link } from 'react-router-dom';
-
-const blogs = [
- 
-  {
-    date: '20 January - 2024',
-    category: 'Cyber Solutions',
-    image: img1,
-    title: 'How To Stop Cyber Criminals During This Global Pandemic',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore veniam dolore.',
-    link: '#',
-  },
-  {
-    date: '25 January - 2024',
-    category: 'Digital Marketing',
-    image: img2,
-    title: 'The First Thing You Should Do If You Fall Victim To A Cyber Attack',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore veniam dolore.',
-    link: '#',
-  },
-  {
-    date: '30 January - 2024',
-    category: 'Consulting',
-    image: img3,
-    title: '3 Things You Should Absolutely Demand From Your It Services',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore veniam dolore.',
-    link: '#',
-  },
-];
+ // Adjust the import path if necessary
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+// import BlogSectioData from '../../../Home/Home1/BlogSection/BlogSectioData';
 
 const BlogSectionGrid = () => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [error, setError] = useState(null); 
+  const navigate = useNavigate();
+  console.log(blogPosts)
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get(`${backendUrl}/getBlogs`, {
+          withCredentials: true,
+        });
+        setBlogPosts(response.data.data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        setError("Failed to fetch blogs. Please try again later."); 
+      }
+    };
+    fetchBlogs();
+  }, [backendUrl]);
+
+  const popularPosts = [...blogPosts]
+    .sort((a, b) => b.views - a.views)
+    .slice(0, 3);
+
+    console.log("popular posts ===="+popularPosts)
 
   return (
-    <section className="blog-area py-12 lg:px-16">
+    <section className="blog-area py-12 lg:px-16 bg-[#121225]">
       <div className="container mx-auto">
-      
-   <BlogSectioData/>
+        {error && <p className="text-red-500">{error}</p>}
+        {/* <BlogSectioData blogPosts={popularPosts} /> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog, index) => (
-            <div key={index} className="single-blog bg-white shadow-lg  overflow-hidden">
+          {blogPosts.map((blog, index) => (
+            <div key={index} className="single-blog shadow-lg overflow-hidden rounded border " onClick={() => navigate(`/blog/${blog._id}`)}>
               <div className="post-img">
-                <Link href={blog.link}>
-                  <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
+                <Link to={blog.link}>
+                  <img src={blog.blogImage} alt={blog.title} className="w-full h-48 object-cover" />
                 </Link>
               </div>
               <div className="p-6">
                 <div className="blog-date text-sm text-gray-500 mb-2">
                   <ul className="flex items-center space-x-2">
-                    <li>
-                      <h6>{blog.date}</h6>
-                    </li>
+                    <li><h6>{blog.date}</h6></li>
                     <li><span className="blog-inline-sep">|</span></li>
-                    <li><a href="/" className="text-indigo-600">{blog.category}</a></li>
+                    <li><Link to="/" className="text-indigo-600">{blog.category}</Link></li>
                   </ul>
                 </div>
                 <div className="blog-body-title mb-2">
-                  <h3 className="text-xl font-semibold"><a href={blog.link}>{blog.title}</a></h3>
+                  <h3 className="text-xl font-semibold text-white"><Link to={`/blog/${blog._id}`}>{blog.title}</Link></h3>
                 </div>
-                <div className="blog-body-text mb-4">
-                  <p>{blog.description}</p>
+                <div className="text-white mb-4">
+                  <p>{blog.description.split(" ").slice(0,25).join(" ")}</p>
                 </div>
                 <div className="blog-bottom-text-link">
-                  <a href={blog.link} className="text-indigo-600 hover:text-indigo-400">+ Read More</a>
+                  <Link to={`blog/${blog._id}`} className="text-indigo-600 hover:text-indigo-400">+ Read More</Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
-     <Arrow/>
+        <Arrow />
       </div>
     </section>
   );

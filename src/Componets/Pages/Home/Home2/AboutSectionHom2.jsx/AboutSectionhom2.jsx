@@ -1,29 +1,60 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from '@emailjs/browser';
+import { toast } from "react-toastify";
+
 const AboutSection = () => {
+  const serviceId = process.env.REACT_APP_SERVICE_ID;
+  const templateId = process.env.REACT_APP_TEMPLATE_ID;
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+  const [isLoading, setIsLoading] = useState(false);
+
+
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    emailjs
+      .sendForm(serviceId, templateId, form.current,publicKey)
+      .then(
+        () => {
+          toast.success('Message sent successfully!',{position:'top-center'});
+          form.current.reset();
+          setIsLoading(false);
+        },
+        (error) => {
+          toast.error('Something went wrong.Please try again later!', {position:'top-center'});
+          setIsLoading(false)
+        }
+      );
+
+  };
+
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
+
   return (
-    <section className="bg-[#121225]  about-area py-12 lg:px-16 font-ui-sans-serif">
+    <section className="bg-[#121225] about-area py-12 lg:px-16 font-ui-sans-serif">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center"  data-aos="fade-right">
+        <div className="flex flex-wrap items-center" data-aos="fade-right">
           <div className="w-full lg:w-6/12 md:w-full">
             <div className="about-content">
               <h6 className="text-lg font-semibold text-gray-300">Code's Thinker</h6>
               <h2 className="text-3xl lg:text-4xl font-bold mt-4 text-white">
-              We design, develop, implement and support IT Systems
+                We design, develop, implement and support IT Systems
               </h2>
               <p className="mt-4 text-gray-300">
-              Code Thinker Software House is a forward-thinking technology
+                Code Thinker Software House is a forward-thinking technology
                 company dedicated to providing cutting-edge software development
                 solutions. We specialize in crafting innovative digital
                 experiences through a blend of creativity, technical expertise,
                 and a customer-first approach. At Code Thinker, we offer a wide
                 range of services, including custom web and mobile application
-                development, full-stack development, UI/UX design.
-                products.
+                development, full-stack development, and UI/UX design.
               </p>
               <div className="skills mt-6">
                 <div className="skill-item mb-4">
@@ -57,14 +88,14 @@ const AboutSection = () => {
             <div className="contact-section bg-[#0f0f1d] border p-8 rounded-lg shadow-md">
               <h3 className="text-2xl font-semibold text-white">Free Consultation</h3>
               <div className="contact-form mt-6">
-                <form id="contact-form" className="form" action="mail.php" method="POST">
+                <form id="contact-form" ref={form} onSubmit={sendEmail} className="form">
                   <div className="space-y-4">
                     <div className="form-group">
                       <input
                         type="text"
-                        name="name"
+                        name="from_name"
                         id="name"
-                        className="form-control w-full p-3 border bg-gray-200  border-gray-300 rounded"
+                        className="form-control w-full p-3 border bg-gray-200 border-gray-300 rounded"
                         required
                         placeholder="Your Name"
                       />
@@ -72,7 +103,7 @@ const AboutSection = () => {
                     <div className="form-group">
                       <input
                         type="email"
-                        name="email"
+                        name="user_email"
                         id="email"
                         className="form-control w-full p-3 border bg-gray-200 border-gray-300 rounded"
                         required
@@ -101,9 +132,14 @@ const AboutSection = () => {
                       ></textarea>
                     </div>
                     <div className="form-group">
-                      <button type="submit" className="btn btn-primary w-32 bg-[#EFA41C] text-white py-3 rounded">
-                        Send Message
+                      <button
+                        type="submit"
+                        className={`btn btn-primary w-32 bg-[#EFA41C] text-white py-3 rounded ${isLoading ? 'cursor-not-allowed opacity-50' : ''}`}
+                        disabled={isLoading}
+                      >
+                        {isLoading ? "Sending..." : "Send Message"}
                       </button>
+
                     </div>
                   </div>
                 </form>
